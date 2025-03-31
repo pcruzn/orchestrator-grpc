@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+service CourseService{
+    // unary service
+    rpc add_course(CSCourseUser) returns (CSStatus) {}
+    rpc remove_course(CSCourseUser) returns (CSStatus) {}
+}
+
+message CSUser{
+    string id = 1;
+    string name = 2;
+    string email = 3;
+}
+
+message CSCourseUser{
+    string id = 1;
+    string course_name = 2;
+    CSUser user = 3;
+}
+
+message CSStatus{
+    int32 status_code = 1;
+}

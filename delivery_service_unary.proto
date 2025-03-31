@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+service DeliveryService{
+    // unary service
+    rpc deliver_course(DSCourseUser) returns (DSStatus) {}
+    rpc undeliver_course(DSCourseUser) returns (DSStatus) {}
+}
+
+message DSUser{
+    string id = 1;
+    string name = 2;
+    string email = 3;
+}
+
+message DSCourseUser{
+    string id = 1;
+    string course_name = 2;
+    DSUser user = 3;
+}
+
+message DSStatus{
+    int32 status_code = 1;
+}
